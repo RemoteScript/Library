@@ -11,7 +11,6 @@ do
 end
 
 local AllInOneGUI = Instance.new("ScreenGui")
-syn.protect_gui(AllInOneGUI)
 local Prefabs = Instance.new("Frame")
 local Label = Instance.new("TextLabel")
 local Window = Instance.new("ImageLabel")
