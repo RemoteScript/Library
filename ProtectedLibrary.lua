@@ -84,8 +84,9 @@ local Input_Roundify_4px = Instance.new("ImageLabel")
 local Windows = Instance.new("Frame")
 
 AllInOneGUI.Name = "AllInOneGUI"
-syn.protect_gui(AllInOneGUI)
+
 AllInOneGUI.Parent = gethui()
+syn.protect_gui(AllInOneGUI)
 
 Prefabs.Name = "Prefabs"
 Prefabs.Parent = AllInOneGUI
