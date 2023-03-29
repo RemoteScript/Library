@@ -6,8 +6,8 @@ local ui_options = {
 }
 
 do
-	local AllInOneGUI = game:GetService("CoreGui"):FindFirstChild("AllInOneGUI")
-	if AllInOneGUI then AllInOneGUI:Destroy() end
+	local AllInOneGUI = gethui()
+	if AllInOneGUI then AllInOneGUI:ClearAllChildren() end
 end
 
 local AllInOneGUI = Instance.new("ScreenGui")
