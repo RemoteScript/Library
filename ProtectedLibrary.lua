@@ -86,7 +86,6 @@ local Windows = Instance.new("Frame")
 AllInOneGUI.Name = "AllInOneGUI"
 
 AllInOneGUI.Parent = gethui()
-syn.protect_gui(AllInOneGUI)
 
 Prefabs.Name = "Prefabs"
 Prefabs.Parent = AllInOneGUI
