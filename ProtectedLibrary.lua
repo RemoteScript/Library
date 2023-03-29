@@ -85,7 +85,7 @@ local Windows = Instance.new("Frame")
 
 AllInOneGUI.Name = "AllInOneGUI"
 syn.protect_gui(AllInOneGUI)
-AllInOneGUI.Parent = game:GetService("CoreGui")
+AllInOneGUI.Parent = gethui()
 
 Prefabs.Name = "Prefabs"
 Prefabs.Parent = AllInOneGUI
