@@ -1,7 +1,7 @@
 local ui_options = {
 	main_color = Color3.fromRGB(41, 74, 122),
 	min_size = Vector2.new(400, 300),
-	toggle_key = Enum.KeyCode.LeftBracket,
+	toggle_key = Enum.KeyCode.RightBracket,
 	can_resize = true,
 }
 
@@ -838,7 +838,7 @@ game:GetService("UserInputService").TextBoxFocusReleased:Connect(
 
 game:GetService("UserInputService").InputBegan:connect(
     function(input)
-        if input.KeyCode == ui_options.toggle_key or toggle_key then
+        if input.KeyCode == ui_options.toggle_key or toggle_key or _G.toggle_key then
             if LazyGlobalTypingCheck == false then
                 local AllInOneGUI = game:GetService("CoreGui"):FindFirstChild("AllInOneGUI")
                 if AllInOneGUI.Enabled == true then
