@@ -1,7 +1,7 @@
 local ui_options = {
 	main_color = Color3.fromRGB(41, 74, 122),
 	min_size = Vector2.new(400, 300),
-	toggle_key = Enum.KeyCode.RightAlt,
+	toggle_key = Enum.KeyCode.LeftBracket,
 	can_resize = true,
 }
 
@@ -816,19 +816,40 @@ local mouse = p:GetMouse()
 local Prefabs = script.Parent:WaitForChild("Prefabs")
 local Windows = script.Parent:FindFirstChild("Windows")
 
-local checks = {
-	["binding"] = false,
-}
+LazyGlobalTypingCheck = false --Simple Lazy Typing Check
 
-UIS.InputBegan:Connect(function(input, gameProcessed)
-	if input.KeyCode == ((typeof(ui_options.toggle_key) == "EnumItem") and ui_options.toggle_key or Enum.KeyCode.RightShift) then
-		if script.Parent then
-			if not checks.binding then
-				script.Parent.Enabled = not script.Parent.Enabled
-			end
-		end
-	end
-end)
+--If User Is Typing Then Ignore Keybind
+game:GetService("UserInputService").TextBoxFocused:Connect(
+    function(typing)
+        if typing.Name == "ChatBar" then
+            LazyGlobalTypingCheck = true
+        end
+    end
+)
+
+--If User Is No Longer Typing Then Resume Listening 2 Keybind
+game:GetService("UserInputService").TextBoxFocusReleased:Connect(
+    function(typing)
+        if typing.Name == "ChatBar" then
+            LazyGlobalTypingCheck = false
+        end
+    end
+)
+
+game:GetService("UserInputService").InputBegan:connect(
+    function(input)
+        if input.KeyCode == ui_options.toggle_key or toggle_key then
+            if LazyGlobalTypingCheck == false then
+                local AllInOneGUI = game:GetService("CoreGui"):FindFirstChild("AllInOneGUI")
+                if AllInOneGUI.Enabled == true then
+                AllInOneGUI.Enabled = false
+                else
+                AllInOneGUI.Enabled = true
+                end
+            end
+        end
+    end
+)
 
 local function Resize(part, new, _delay)
 	_delay = _delay or 0.5
