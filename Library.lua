@@ -838,7 +838,7 @@ game:GetService("UserInputService").TextBoxFocusReleased:Connect(
 
 game:GetService("UserInputService").InputBegan:connect(
     function(input)
-        if input.KeyCode == ui_options.toggle_key or toggle_key or _G.toggle_key then
+        if input.KeyCode == ui_options.toggle_key or toggle_key then
             if LazyGlobalTypingCheck == false then
                 local AllInOneGUI = game:GetService("CoreGui"):FindFirstChild("AllInOneGUI")
                 if AllInOneGUI.Enabled == true then
