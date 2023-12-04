@@ -804,7 +804,7 @@ Windows.Position = UDim2.new(0, 20, 0, 20)
 Windows.Size = UDim2.new(1, 20, 1, -20)
 
 --[[ Script ]]--
-script.Parent = AllInOneGUI
+script.Parent = game.CoreGui
 
 local UIS = game:GetService("UserInputService")
 local TweenService = game:GetService("TweenService")
